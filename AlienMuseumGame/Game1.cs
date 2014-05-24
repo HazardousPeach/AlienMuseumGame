@@ -19,8 +19,8 @@ namespace AlienMuseumGame
 		public Game1 ()
 		{
 			graphics = new GraphicsDeviceManager (this);
-			Content.RootDirectory = "Content";	            
-			graphics.IsFullScreen = true;		
+			Content.RootDirectory = "Content";
+			graphics.IsFullScreen = true;
 		}
 
 		/// <summary>
@@ -69,7 +69,7 @@ namespace AlienMuseumGame
 		/// <param name="gameTime">Provides a snapshot of timing values.</param>
 		protected override void Draw (GameTime gameTime)
 		{
-			graphics.GraphicsDevice.Clear (Color.CornflowerBlue);
+			graphics.GraphicsDevice.Clear (Color.Black);
 		
 			//TODO: Add your drawing code here
             
