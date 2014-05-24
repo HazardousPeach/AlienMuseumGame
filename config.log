@@ -1,0 +1,4 @@
+Looking for required packages
+Checking for package 'monogame'.. found.
+Checking for package 'monogame'.. ERROR: Package named 'monogame' >= 4.2.2 not found.
+Try adjusting your PKG_CONFIG_PATH environment variable.
