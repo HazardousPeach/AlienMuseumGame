@@ -8,22 +8,35 @@ using Microsoft.Xna.Framework.Content;
 using TiledSharp;
 
 namespace AlienMuseumGame {
-  public class Level {
-		TmxMap levelMap;
+	public class Level {
+    TmxMap levelMap;
     List<Entity> levelEnts;
-    public Level(String levelpath, ContentManager content){
-			levelMap = new TmxMap("Content/" + levelpath);
+    List<Tile> levelTiles;
+		public Level(String levelpath, ContentManager content){
+      levelMap = new TmxMap("Content/" + levelpath);
       levelEnts = new List<Entity> ();
-			foreach(TmxObjectGroup grp in levelMap.ObjectGroups){
-				foreach(TmxObjectGroup.TmxObject mo in grp.Objects){
+      foreach(TmxObjectGroup grp in levelMap.ObjectGroups){
+	foreach(TmxObjectGroup.TmxObject mo in grp.Objects){
 	  Entity ent = Entity.MakeEnt(mo.Type, new Vector2(mo.X,mo.Y), mo.Properties);
 	  levelEnts.Add(ent);
+	}
+      }
+      Tile.tileset = levelMap.Tilesets[0];
+      foreach (TmxTileset tileset in levelMap.Tilesets) {
+				string name = tileset.Image.Source.Substring(8,tileset.Image.Source.Length - 12);
+				Game1.textures.Add (tileset.Image.Source, content.Load<Texture2D> (name));
+      }
+      levelTiles = new List<Tile> ();
+      foreach(TmxLayer layer in levelMap.Layers){
+	foreach(TmxLayerTile tile in layer.Tiles){
+	  levelTiles.Add(new Tile(new Vector2(tile.X, tile.Y), tile.Gid));
 	}
       }
 
     }
     public List<GraphicsObject> getDrawables(){
       List<GraphicsObject> drawables = new List<GraphicsObject>();
+      drawables.AddRange(levelTiles);
       drawables.AddRange(levelEnts);
       return drawables;
     }
@@ -33,7 +46,6 @@ namespace AlienMuseumGame {
       }
     }
     public void DrawBackground(Camera camera){
-			//levelMap.Draw(camera.sb, camera.display, new Vector2(camera.viewport.X, camera.viewport.Y));
     }
   }
 }

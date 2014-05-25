@@ -107,6 +107,9 @@
    <tile gid="26"/>
   </data>
  </layer>
+<objectgroup name="everything" width="10" height="10">
+ 	<object name="playerstart" type="player" x="3" y="5"></object>
+ </objectgroup>
  <!---<objectgroup name="wall" width="10" height="10">
   <object name="wall1" type="wall" x="2" y="0">
    <polyline points="0,0 633,3 635,636 1,636 0,130 -1,124 58,124"/>
