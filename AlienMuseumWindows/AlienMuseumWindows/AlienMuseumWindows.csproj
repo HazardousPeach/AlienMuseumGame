@@ -35,6 +35,9 @@
     <ApplicationIcon>Icon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Entity\Wall.cs" />
+    <Compile Include="Entity\Stairs.cs" />
+    <Compile Include="Entity\Guard.cs" />
     <Compile Include="Entity\Entity.cs" />
     <Compile Include="Entity\Level.cs" />
     <Compile Include="Entity\Player.cs" />

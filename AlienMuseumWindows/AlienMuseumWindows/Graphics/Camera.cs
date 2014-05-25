@@ -4,9 +4,9 @@ using System.Collections.Generic;
 
 namespace AlienMuseumGame{
 	  public class Camera {
-	  	 private SpriteBatch sb;
-		 private Rectangle display;
-		 private Rectangle viewport;
+	  	 public SpriteBatch sb;
+		 public Rectangle display;
+		 public Rectangle viewport;
 		 public Camera(SpriteBatch batch, Vector2 displayDimensions, Vector2 viewportDimensions){
 		 	sb = batch;
 			display = new Rectangle(0,0, (int)displayDimensions.X, (int)displayDimensions.Y);
@@ -15,14 +15,16 @@ namespace AlienMuseumGame{
 		 public void Draw(List<GraphicsObject> objects){
 		   sb.Begin();
 		   foreach(var obj in objects){
-				Vector2 pos = obj.getPosition ();
+				Vector2 pos = obj.getPosition() - new Vector2(viewport.X, viewport.Y);;
 				Rectangle rect = obj.getFinalRectangle ();
-				if(pos.X + rect.Width > viewport.Left &&
-					pos.X < viewport.Right &&
-					pos.Y < viewport.Bottom &&
-					pos.Y + rect.Height > viewport.Top)
+				if(pos.X + rect.Width > 0 &&
+					pos.X < viewport.Width &&
+					pos.Y < viewport.Height &&
+					pos.Y + rect.Height > 0)
 		     {
-		       sb.Draw(obj.getTexture(), new Vector2(obj.getPosition().X, obj.getPosition().Y), Color.White);
+					Texture2D tex = obj.getTexture ();
+					sb.Draw(tex, pos,
+						rect, Color.White);
 		     }
 		   }
 

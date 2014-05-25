@@ -1,56 +1,51 @@
 
 using System.IO;
 using System.Collections.Generic;
-using TiledMax;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Content;
+using TiledSharp;
 
 namespace AlienMuseumGame {
-  public class Level : GraphicsObject {
-    Map levelMap;
+	public class Level {
+    TmxMap levelMap;
     List<Entity> levelEnts;
-    Texture2D background;
-    public Level(String levelpath){
-      levelMap = Map.Open(levelpath);
-      background = convertBitmap(levelMap.DrawGdiPreview(true));
-      foreach(ObjectGroup grp in levelMap.ObjectGroups){
-	foreach(MapObject mo in grp){
+    List<Tile> levelTiles;
+		public Level(String levelpath, ContentManager content){
+      levelMap = new TmxMap("Content/" + levelpath);
+      levelEnts = new List<Entity> ();
+      foreach(TmxObjectGroup grp in levelMap.ObjectGroups){
+	foreach(TmxObjectGroup.TmxObject mo in grp.Objects){
 	  Entity ent = Entity.MakeEnt(mo.Type, new Vector2(mo.X,mo.Y), mo.Properties);
 	  levelEnts.Add(ent);
+	}
+      }
+      Tile.tileset = levelMap.Tilesets[0];
+      foreach (TmxTileset tileset in levelMap.Tilesets) {
+				string name = tileset.Image.Source.Substring(8,tileset.Image.Source.Length - 12);
+				Game1.textures.Add (tileset.Image.Source, content.Load<Texture2D> (name));
+      }
+      levelTiles = new List<Tile> ();
+      foreach(TmxLayer layer in levelMap.Layers){
+	foreach(TmxLayerTile tile in layer.Tiles){
+	  levelTiles.Add(new Tile(new Vector2(tile.X, tile.Y), tile.Gid));
 	}
       }
 
     }
     public List<GraphicsObject> getDrawables(){
       List<GraphicsObject> drawables = new List<GraphicsObject>();
-      drawables.Add(this);
+      drawables.AddRange(levelTiles);
       drawables.AddRange(levelEnts);
       return drawables;
-    }
-    private Texture2D convertBitmap(System.Drawing.Bitmap bmp){
-
-      Color[] pixels = new Color[bmp.Width * bmp.Height];
-      for (int y = 0; y < bmp.Height; y++)
-      {
-	for (int x = 0; x < bmp.Width; x++)
-	{
-	  System.Drawing.Color c = bmp.GetPixel(x, y);
-	  pixels[(y * bmp.Width) + x] = new Color(c.R, c.G, c.B, c.A);
-	}
-      }
-			Texture2D result = new Texture2D(Game1.graphics.GraphicsDevice, bmp.Width, bmp.Height, false, SurfaceFormat.Color);
-		 	
-      result.SetData<Color>(pixels);
-      return result;
     }
     public void updateEnts() {
       foreach(Entity ent in levelEnts){
 	ent.Update();
       }
     }
-    public Vector2 getPosition() { return Vector2.Zero;}
-    public Texture2D getTexture() { return background; }
-    public Microsoft.Xna.Framework.Rectangle getFinalRectangle() { return new Rectangle(0,0,background.Width, background.Height);}
+    public void DrawBackground(Camera camera){
+    }
   }
 }

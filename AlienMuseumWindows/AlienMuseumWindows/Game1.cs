@@ -1,4 +1,4 @@
-﻿﻿﻿﻿#region Using Statements
+﻿﻿#region Using Statements
 using System;
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
@@ -21,8 +21,9 @@ namespace AlienMuseumGame
         SpriteBatch spriteBatch;
 		public static GameState gameState;
 		public static Dictionary<String, Texture2D> textures;
+		public static Dictionary<String, Level> levels;
         public static Dictionary<String, SoundEffectInstance> sounds;
-
+        public static Player pl1;
         public Game1()
             : base()
         {
@@ -31,7 +32,7 @@ namespace AlienMuseumGame
         }
 
         public void InitialGameState(){
-            gameState = new UtilityGameState(0, spriteBatch);
+			gameState = new PlayState(0, spriteBatch);
         }
 
         /// <summary>
@@ -43,16 +44,23 @@ namespace AlienMuseumGame
         protected override void Initialize()
         {
 			// TODO: Add your initialization logic here
+	  Entity.RegisterEntity("player", Player.MakePlayer);
             base.Initialize();
         }
 
 		protected void LoadTextures(){
 			// To load a texture: textures.Add("assetname", Content.Load<Texture2D>("assetpath"));
+			textures = new Dictionary<string, Texture2D> ();
+			textures.Add ("player", Content.Load<Texture2D> ("NorthSlug"));
+		}
+		protected void LoadLevels(){
+			levels = new Dictionary<string, Level> ();
+			levels.Add("testlevel", new Level("testlevel1.tmx", Content));
 		}
 
         protected void LoadSounds()
         {
-          //
+            // To load a sound: sounds.Add("assetname", Content.Load<SoundEffectInstance>("assetpath"));
         }
         /// <summary>
         /// LoadContent will be called once per game and is the place to load
@@ -63,6 +71,7 @@ namespace AlienMuseumGame
             // Create a new SpriteBatch, which can be used to draw textures.
 			spriteBatch = new SpriteBatch(GraphicsDevice);
 			LoadTextures ();
+			LoadLevels();
 			InitialGameState ();
             LoadSounds();
 
@@ -93,7 +102,7 @@ namespace AlienMuseumGame
 
         public static void ChangeGameStateUtility(int level, SpriteBatch changeBatch)
         {
-            gameState = new UtilityGameState(level, changeBatch);
+			//gameState = new UtilityGameState(level, changeBatch);
         }
 
         public static void ChangeGameStatePlay(int level, SpriteBatch changeBatch)
@@ -108,8 +117,7 @@ namespace AlienMuseumGame
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.Black);
-            spriteBatch.Begin();
-            
+			gameState.Draw ();
 
             base.Draw(gameTime);
         }
