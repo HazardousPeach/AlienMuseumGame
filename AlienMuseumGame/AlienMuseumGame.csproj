@@ -44,6 +44,7 @@
     </Reference>
     <Reference Include="Tao.Sdl, Version=1.2.13.0, Culture=neutral, PublicKeyToken=9c7a200e36c0094e">
       <Private>False</Private>
+      <Package>monogame</Package>
     </Reference>
     <Reference Include="ICSharpCode.SharpZipLib">
       <HintPath>..\..\Downloads\net-20\ICSharpCode.SharpZipLib.dll</HintPath>
@@ -64,6 +65,7 @@
     </Compile>
     <Compile Include="..\AlienMuseumWindows\AlienMuseumWindows\Game1.cs">
       <Link>Game1.cs</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="..\AlienMuseumWindows\AlienMuseumWindows\Entity\Entity.cs">
       <Link>Entity\Entity.cs</Link>
@@ -133,4 +135,10 @@
       </Properties>
     </MonoDevelop>
   </ProjectExtensions>
+  <ItemGroup>
+    <Content Include="..\AlienMuseumWindows\AlienMuseumWindows\Content\NorthSlug.png">
+      <Link>Content\NorthSlug.png</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
 </Project>
