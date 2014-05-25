@@ -45,7 +45,15 @@ namespace AlienMuseumGame
         }
 
 		protected void LoadTextures(){
-			// To load a texture: textures.Add("assetname", Content.Load<Texture2D>("assetpath"));
+			// To load a texture: textures.Add("assetname", Content.Load<Texture2D>("assetpath"));\
+            try
+            {
+                textures.Add("StartScreen", Content.Load<Texture2D>(@"Content\StartScreen"));
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("{0} le", e);
+            };
 		}
 
         /// <summary>
@@ -56,7 +64,7 @@ namespace AlienMuseumGame
         {
             // Create a new SpriteBatch, which can be used to draw textures.
 			spriteBatch = new SpriteBatch(GraphicsDevice);
-			LoadTextures ();
+			LoadTextures();
 			InitialGameState ();
 
             // TODO: use this.Content to load your game content here

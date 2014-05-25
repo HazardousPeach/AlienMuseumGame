@@ -29,6 +29,24 @@ namespace AlienMuseumGame{
 		   sb.End();
 		 }
 
+         public void DrawString(List<TextObject> objects)
+         {
+             sb.Begin();
+             foreach (var obj in objects)
+             {
+                 Vector2 pos = obj.getPosition();
+                 Rectangle rect = obj.getFinalRectangle();
+                 if (pos.X + rect.Width > viewport.Left &&
+                     pos.X < viewport.Right &&
+                     pos.Y < viewport.Bottom &&
+                     pos.Y + rect.Height > viewport.Top)
+                 {
+                     sb.DrawString(obj.getFont(), obj.getString(), new Vector2(obj.getPosition().X, obj.getPosition().Y), Color.Green);
+                 }
+             }
+
+             sb.End();
+         }
 		 private Vector2 worldToScreen(Vector2 point){
 			return Vector2.Zero;
 		 }
