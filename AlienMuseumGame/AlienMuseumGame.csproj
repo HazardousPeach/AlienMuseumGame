@@ -44,16 +44,21 @@
     </Reference>
     <Reference Include="Tao.Sdl, Version=1.2.13.0, Culture=neutral, PublicKeyToken=9c7a200e36c0094e">
       <Private>False</Private>
-      <Package>monogame</Package>
     </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Game1.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Graphics\Camera.cs" />
-    <Compile Include="Graphics\GraphicsObject.cs" />
-    <Compile Include="Entity\Player.cs" />
+    <Compile Include="..\AlienMuseumWindows\AlienMuseumWindows\Graphics\Camera.cs">
+      <Link>Graphics\Camera.cs</Link>
+    </Compile>
+    <Compile Include="..\AlienMuseumWindows\AlienMuseumWindows\Graphics\GraphicsObject.cs">
+      <Link>Graphics\GraphicsObject.cs</Link>
+    </Compile>
+    <Compile Include="..\AlienMuseumWindows\AlienMuseumWindows\Entity\Player.cs">
+      <Link>Entity\Player.cs</Link>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="Icon.png" />
