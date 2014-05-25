@@ -28,7 +28,7 @@ namespace AlienMuseumGame {
       drawables.AddRange(levelEnts);
       return drawables;
     }
-    private Texture2D convertBitmap(System.Drawing.Bitmap bmp, GraphicsDevice g){
+    private Texture2D convertBitmap(System.Drawing.Bitmap bmp){
 
       Color[] pixels = new Color[bmp.Width * bmp.Height];
       for (int y = 0; y < bmp.Height; y++)
@@ -39,10 +39,15 @@ namespace AlienMuseumGame {
 	  pixels[(y * bmp.Width) + x] = new Color(c.R, c.G, c.B, c.A);
 	}
       }
-      Texture2D result = new Texture2D(g, bmp.Width, bmp.Height, false, SurfaceFormat.Color);
+      Texture2D result = new Texture2D(GraphicsDevice, bmp.Width, bmp.Height, false, SurfaceFormat.Color);
 		 	
       result.SetData<Color>(pixels);
       return result;
+    }
+    public void updateEnts() {
+      foreach(Entity ent in levelEnts){
+	ent.Update();
+      }
     }
     public Vector2 getPosition() { return Vector2.Zero;}
     public Texture2D getTexture() { return background; }
