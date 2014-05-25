@@ -2,12 +2,13 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Graphics;
 using TiledMax;
+using System.Collections.Generic;
 
 namespace AlienMuseumGame{
 	public class Player : Entity, GraphicsObject{
     
     public static Texture2D PlayerTex {get;set;}
-
+    
     static Player(){
       Entity.RegisterEntity("player", MakePlayer);
     }
@@ -18,9 +19,12 @@ namespace AlienMuseumGame{
 			PlayerTex = Game1.textures ["player"];
     }
       public static Player MakePlayer(Vector2 position, Properties properties){
-	return new Player(position);
+	        return new Player(position);
       }
-    public override void Update(){
+       
+        
+        
+        public override void Update(){
 			float speed = 7.0f;
       Vector2 dPos = Vector2.Zero;
       KeyboardState keystate = Keyboard.GetState();

@@ -48,11 +48,12 @@ namespace AlienMuseumGame
 
 		protected void LoadTextures(){
 			// To load a texture: textures.Add("assetname", Content.Load<Texture2D>("assetpath"));
-		}
+            
+        }
 
         protected void LoadSounds()
         {
-          //
+            // To load a sound: sounds.Add("assetname", Content.Load<SoundEffectInstance>("assetpath"));
         }
         /// <summary>
         /// LoadContent will be called once per game and is the place to load
