@@ -2,6 +2,9 @@
 
 using Microsoft.Xna.Framework.Graphics;
 using System;
+using Microsoft.Xna.Framework;
+
+
 namespace AlienMuseumGame{
   public class PlayState : GameState {
     static String[] levelpaths = { "testlevel1.tmx" };
@@ -15,7 +18,7 @@ namespace AlienMuseumGame{
       curLevel.updateEnts();
     }
     public override void Draw(){
-      camera.draw(curLevel.getDrawables());
+			camera.Draw(curLevel.getDrawables());
     }
   }
 }

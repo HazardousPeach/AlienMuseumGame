@@ -11,7 +11,7 @@ namespace AlienMuseumGame {
     Map levelMap;
     List<Entity> levelEnts;
     Texture2D background;
-    public Level(String levelpath, GraphicsDeviceManager g){
+    public Level(String levelpath){
       levelMap = Map.Open(levelpath);
       background = convertBitmap(levelMap.DrawGdiPreview(true));
       foreach(ObjectGroup grp in levelMap.ObjectGroups){
@@ -39,7 +39,7 @@ namespace AlienMuseumGame {
 	  pixels[(y * bmp.Width) + x] = new Color(c.R, c.G, c.B, c.A);
 	}
       }
-      Texture2D result = new Texture2D(GraphicsDevice, bmp.Width, bmp.Height, false, SurfaceFormat.Color);
+			Texture2D result = new Texture2D(Game1.graphics.GraphicsDevice, bmp.Width, bmp.Height, false, SurfaceFormat.Color);
 		 	
       result.SetData<Color>(pixels);
       return result;

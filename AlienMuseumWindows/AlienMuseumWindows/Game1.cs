@@ -1,4 +1,4 @@
-﻿﻿#region Using Statements
+﻿﻿﻿#region Using Statements
 using System;
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
@@ -16,9 +16,10 @@ namespace AlienMuseumGame
     /// </summary>
     public class Game1 : Game
     {
-        GraphicsDeviceManager graphics;
+		public static GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
-        GameState gameState;
+		public static GameState gameState;
+		public static Dictionary<String, Texture2D> textures;
 
         public Game1()
             : base()
@@ -27,7 +28,7 @@ namespace AlienMuseumGame
             Content.RootDirectory = "Content";
         }
 
-        public static void InitialGameState(){
+        public void InitialGameState(){
             gameState = new UtilityGameState(0, spriteBatch);
         }
 
@@ -39,10 +40,12 @@ namespace AlienMuseumGame
         /// </summary>
         protected override void Initialize()
         {
-            // TODO: Add your initialization logic here
-
+			// TODO: Add your initialization logic here
             base.Initialize();
         }
+
+		protected void LoadTextures(){
+		}
 
         /// <summary>
         /// LoadContent will be called once per game and is the place to load
@@ -51,7 +54,9 @@ namespace AlienMuseumGame
         protected override void LoadContent()
         {
             // Create a new SpriteBatch, which can be used to draw textures.
-            spriteBatch = new SpriteBatch(GraphicsDevice);
+			spriteBatch = new SpriteBatch(GraphicsDevice);
+			LoadTextures ();
+			InitialGameState ();
 
             // TODO: use this.Content to load your game content here
         }
@@ -74,7 +79,7 @@ namespace AlienMuseumGame
         {
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
-            gameState.Update(gameTime);
+            gameState.Update();
             base.Update(gameTime);
         }
 
@@ -85,7 +90,7 @@ namespace AlienMuseumGame
 
         public static void ChangeGameStatePlay(int level, SpriteBatch changeBatch)
         {
-            gameState = new PlayGameState(level, changeBatch);
+            gameState = new PlayState(level, changeBatch);
         }
 
         /// <summary>

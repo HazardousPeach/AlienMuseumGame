@@ -106,6 +106,12 @@
     <Compile Include="..\AlienMuseumWindows\AlienMuseumWindows\TiledMax\Xml.cs">
       <Link>TiledMax\Xml.cs</Link>
     </Compile>
+    <Compile Include="..\AlienMuseumWindows\AlienMuseumWindows\States\GameState.cs">
+      <Link>States\GameState.cs</Link>
+    </Compile>
+    <Compile Include="..\AlienMuseumWindows\AlienMuseumWindows\States\PlayState.cs">
+      <Link>States\PlayState.cs</Link>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="Icon.png" />
@@ -118,6 +124,7 @@
     <Folder Include="Graphics\" />
     <Folder Include="Entity\" />
     <Folder Include="TiledMax\" />
+    <Folder Include="States\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ProjectExtensions>
