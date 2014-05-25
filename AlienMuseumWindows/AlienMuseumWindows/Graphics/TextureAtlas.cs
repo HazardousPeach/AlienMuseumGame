@@ -31,6 +31,20 @@ namespace TextureAtlas
                 currentFrame = 0;
         }
 
+        public Vector2 getSize()
+        {
+            return new Vector2(Texture.Width / Columns, Texture.Height / Rows);
+        }
+
+        public Rectangle getFinalRectangle(int frame)
+        {
+            int rowNum = frame / Columns;
+            int remainder = frame % Columns;
+            return new Rectangle(remainder*(Texture.Width / Columns), rowNum*(Texture.Height / Rows), 
+                Texture.Width / Columns, Texture.Height / Rows);
+        }
+
+
         public void Draw(SpriteBatch spriteBatch, Vector2 location)
         {
             int width = Texture.Width / Columns;
