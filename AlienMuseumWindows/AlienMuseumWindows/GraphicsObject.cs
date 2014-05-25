@@ -2,9 +2,9 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
 namespace AlienMuseumGame {
-	public interface GraphicsObject{
+	  interface GraphicsObject{
 	  	    Texture2D getCurrentFrame();
-		    Vector2 getPosition();
+		    Vector2D getPosition();
 		    float getRotation();
 	  }
 }

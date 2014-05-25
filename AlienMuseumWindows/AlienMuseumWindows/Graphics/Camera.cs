@@ -1,5 +1,6 @@
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Graphics;
+using Microsoft.Xna.Framework.Graphics;
+using System.Collections.Generic;
 
 namespace AlienMuseumGame{
 	  public class Camera {
@@ -8,15 +9,15 @@ namespace AlienMuseumGame{
 		 private Rectangle viewport;
 		 public Camera(SpriteBatch batch, Vector2 displayDimensions, Vector2 viewportDimensions){
 		 	sb = batch;
-			display = new Rectangle(0,0, displayDimensions.X, displayDimensions.Y);
-			viewport = new Rectangle(0,0, viewportDimensions.X, viewportDimensions.Y);
+			display = new Rectangle(0,0, (int)displayDimensions.X, (int)displayDimensions.Y);
+			viewport = new Rectangle(0,0, (int)viewportDimensions.X, (int)viewportDimensions.Y);
 		 }
 		 public void Draw(List<GraphicsObject> objects){
 		 	foreach(GraphicsObject obj in objects){
 			}
 		 }
-		 private Vector2D worldToScreen(Vector2D point){
-		 	 
+		 private Vector2 worldToScreen(Vector2 point){
+			return Vector2.Zero;
 		 }
 	  
 	  }
