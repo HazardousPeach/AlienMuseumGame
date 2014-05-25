@@ -81,9 +81,17 @@ namespace AlienMuseumWindows
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.CornflowerBlue);
+            GraphicsDevice.Clear(Color.Black);
 
-            // TODO: Add your drawing code here
+            int width;
+            int height;
+            int row;
+            int column;
+
+            for()
+            Rectangle sourceRectangle = new Rectangle(width * column, height * row, width, height);
+            Rectangle destinationRectangle = new Rectangle((int)location.X, (int)location.Y, width, height);
+
 
             base.Draw(gameTime);
         }
