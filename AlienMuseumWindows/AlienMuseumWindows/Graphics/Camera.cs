@@ -1,12 +1,13 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System.Collections.Generic;
+using System.Text;
 
 namespace AlienMuseumGame{
 	  public class Camera {
-	  	 private SpriteBatch sb;
-		 private Rectangle display;
-		 private Rectangle viewport;
+	  	 public SpriteBatch sb;
+		 public Rectangle display;
+		 public Rectangle viewport;
 		 public Camera(SpriteBatch batch, Vector2 displayDimensions, Vector2 viewportDimensions){
 		 	sb = batch;
 			display = new Rectangle(0,0, (int)displayDimensions.X, (int)displayDimensions.Y);
@@ -22,7 +23,9 @@ namespace AlienMuseumGame{
 					pos.Y < viewport.Bottom &&
 					pos.Y + rect.Height > viewport.Top)
 		     {
-		       sb.Draw(obj.getTexture(), new Vector2(obj.getPosition().X, obj.getPosition().Y), Color.White);
+					Texture2D tex = obj.getTexture ();
+					Vector2 position = obj.getPosition();
+					sb.Draw(tex, position, Color.White);
 		     }
 		   }
 
@@ -34,15 +37,8 @@ namespace AlienMuseumGame{
              sb.Begin();
              foreach (var obj in objects)
              {
-                 Vector2 pos = obj.getPosition();
-                 Rectangle rect = obj.getFinalRectangle();
-                 if (pos.X + rect.Width > viewport.Left &&
-                     pos.X < viewport.Right &&
-                     pos.Y < viewport.Bottom &&
-                     pos.Y + rect.Height > viewport.Top)
-                 {
-                     sb.DrawString(obj.getFont(), obj.getString(), new Vector2(obj.getPosition().X, obj.getPosition().Y), Color.Green);
-                 }
+                     sb.DrawString(obj.Font, obj.String, new Vector2 (obj.Position.X,obj.Position.Y), obj.Color, 0.0, new Vector2(0, 0), new Vector2 (obj.Scale.X,obj.Scale.Y), new SpriteEffect(null), 0.0);
+                 
              }
 
              sb.End();

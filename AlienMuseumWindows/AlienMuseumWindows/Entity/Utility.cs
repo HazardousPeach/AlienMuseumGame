@@ -41,9 +41,6 @@ namespace AlienMuseumGame
         }
         public Vector2 getPosition() { return Vector2.Zero;}
         public Texture2D getTexture() { return background; }
-        public SpriteFont getFont() { return font; }
-
-        public String getString() { return null; }
         public Microsoft.Xna.Framework.Rectangle getFinalRectangle() { return new Rectangle(0,0,background.Width, background.Height);}
     }
 }

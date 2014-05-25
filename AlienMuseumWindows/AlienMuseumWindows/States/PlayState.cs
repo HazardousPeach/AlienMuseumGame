@@ -7,17 +7,18 @@ using Microsoft.Xna.Framework;
 
 namespace AlienMuseumGame{
   public class PlayState : GameState {
-    static String[] levelpaths = { "testlevel1.tmx" };
+    static String[] levels = { "testlevel" };
     Level curLevel;
     Camera camera;
     public PlayState(int levelnum, SpriteBatch batch){
-      curLevel = new Level(levelpaths[levelnum]);
+			curLevel = Game1.levels[levels[levelnum]];
       camera = new Camera(batch, new Vector2(800,600), new Vector2(800,600));
     }
     public override void Update(){
       curLevel.updateEnts();
     }
     public override void Draw(){
+      curLevel.DrawBackground(camera);
 			camera.Draw(curLevel.getDrawables());
     }
   }

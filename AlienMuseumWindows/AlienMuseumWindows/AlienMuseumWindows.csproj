@@ -46,20 +46,31 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Graphics\TextureAtlas.cs" />
+    <Compile Include="Sound\Sound.cs" />
     <Compile Include="States\GameState.cs" />
     <Compile Include="States\PlayState.cs" />
+    <Compile Include="States\TextParser.cs" />
     <Compile Include="States\UtilityState.cs" />
-    <Compile Include="TiledMax\GZip.cs" />
-    <Compile Include="TiledMax\Image.cs" />
-    <Compile Include="TiledMax\Layer.cs" />
-    <Compile Include="TiledMax\LoadingLog.cs" />
-    <Compile Include="TiledMax\Map.cs" />
-    <Compile Include="TiledMax\MapObject.cs" />
-    <Compile Include="TiledMax\ObjectGroup.cs" />
-    <Compile Include="TiledMax\Properties.cs" />
-    <Compile Include="TiledMax\Tile.cs" />
-    <Compile Include="TiledMax\TileSet.cs" />
-    <Compile Include="TiledMax\Xml.cs" />
+    <Compile Include="TiledSharp-master\TiledSharp\src\AssemblyInfo.cs" />
+    <Compile Include="TiledSharp-master\TiledSharp\src\ImageLayer.cs" />
+    <Compile Include="TiledSharp-master\TiledSharp\src\Layer.cs" />
+    <Compile Include="TiledSharp-master\TiledSharp\src\Map.cs" />
+    <Compile Include="TiledSharp-master\TiledSharp\src\ObjectGroup.cs" />
+    <Compile Include="TiledSharp-master\TiledSharp\src\TiledCore.cs" />
+    <Compile Include="TiledSharp-master\TiledSharp\src\Tileset.cs" />
+    <Compile Include="TiledSharp-master\TiledSharp\src\zlib\CRC32.cs" />
+    <Compile Include="TiledSharp-master\TiledSharp\src\zlib\Deflate.cs" />
+    <Compile Include="TiledSharp-master\TiledSharp\src\zlib\DeflateStream.cs" />
+    <Compile Include="TiledSharp-master\TiledSharp\src\zlib\GZipStream.cs" />
+    <Compile Include="TiledSharp-master\TiledSharp\src\zlib\Inflate.cs" />
+    <Compile Include="TiledSharp-master\TiledSharp\src\zlib\InfTree.cs" />
+    <Compile Include="TiledSharp-master\TiledSharp\src\zlib\ParallelDeflateOutputStream.cs" />
+    <Compile Include="TiledSharp-master\TiledSharp\src\zlib\Tree.cs" />
+    <Compile Include="TiledSharp-master\TiledSharp\src\zlib\Zlib.cs" />
+    <Compile Include="TiledSharp-master\TiledSharp\src\zlib\ZlibBaseStream.cs" />
+    <Compile Include="TiledSharp-master\TiledSharp\src\zlib\ZlibCodec.cs" />
+    <Compile Include="TiledSharp-master\TiledSharp\src\zlib\ZlibConstants.cs" />
+    <Compile Include="TiledSharp-master\TiledSharp\src\zlib\ZlibStream.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="ICSharpCode.SharpZipLib">
@@ -75,6 +86,7 @@
       <HintPath>$(MSBuildExtensionsPath)\..\MonoGame\v3.0\Assemblies\WindowsGL\Lidgren.Network.dll</HintPath>
     </Reference>
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Xml.Linq" />
     <Reference Include="Tao.Sdl">
       <HintPath>$(MSBuildExtensionsPath)\..\MonoGame\v3.0\Assemblies\WindowsGL\Tao.Sdl.dll</HintPath>
     </Reference>
@@ -83,10 +95,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Icon.ico" />
-    <Content Include="TiledMax\TiledMax.csproj" />
+    <Content Include="TiledSharp-master\TiledSharp\TiledSharp.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Content\" />
+    <Folder Include="Content\Music\" />
+    <Folder Include="Content\SoundFX\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

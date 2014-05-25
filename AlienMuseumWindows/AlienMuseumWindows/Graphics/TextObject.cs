@@ -4,17 +4,33 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Microsoft.Xna.Framework;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 
 namespace AlienMuseumGame
 {
-    public interface TextObject
+    public struct TextObject
     {
-        Vector2 getPosition();
+        public TextObject(Vector2 Position, Color Color, Vector2 Scale, SpriteFont Font, StringBuilder String)
+        {
+            this.Position = Position;
+            this.Color = Color;
+            this.Scale = Scale;
+            this.Font = Font;
+            this.String = String;
+        }
+        public Vector2 Position;
 
-        SpriteFont getFont();
+        public Color Color;
 
-        String getString();
+        public Vector2 Scale;
 
-        Rectangle getFinalRectangle();
+        public SpriteFont Font;
+
+        public StringBuilder String;
     }
+    
 }
