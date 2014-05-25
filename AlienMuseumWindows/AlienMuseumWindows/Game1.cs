@@ -45,6 +45,7 @@ namespace AlienMuseumGame
         }
 
 		protected void LoadTextures(){
+		  // To load a texture: textures.Add("assetname" "assetpath");
 		}
 
         /// <summary>
