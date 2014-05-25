@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 #endregion
 
-namespace AlienMuseumWindows
+namespace AlienMuseumGame
 {
 #if WINDOWS || LINUX
     /// <summary>
