@@ -2,11 +2,11 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
 namespace AlienMuseumGame {
-	  public interface GraphicsObject{
+  public interface GraphicsObject{
 
-          Vector2 getPosition();
-          Texture2D getTexture();
-          Rectangle getFinalRectangle();
-
-	  }
+    Vector2 getPosition();
+    Texture2D getTexture();
+    Rectangle getFinalRectangle();
+    
+  }
 }

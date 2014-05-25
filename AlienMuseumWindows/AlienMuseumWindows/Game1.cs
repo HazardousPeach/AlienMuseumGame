@@ -1,4 +1,4 @@
-﻿#region Using Statements
+﻿﻿#region Using Statements
 using System;
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
@@ -9,7 +9,7 @@ using Microsoft.Xna.Framework.Storage;
 using Microsoft.Xna.Framework.GamerServices;
 #endregion
 
-namespace AlienMuseumWindows
+namespace AlienMuseumGame
 {
     /// <summary>
     /// This is the main type for your game
@@ -88,9 +88,9 @@ namespace AlienMuseumWindows
             int row;
             int column;
 
-            for()
-            Rectangle sourceRectangle = new Rectangle(width * column, height * row, width, height);
-            Rectangle destinationRectangle = new Rectangle((int)location.X, (int)location.Y, width, height);
+            /* for() */
+            /* Rectangle sourceRectangle = new Rectangle(width * column, height * row, width, height); */
+            /* Rectangle destinationRectangle = new Rectangle((int)location.X, (int)location.Y, width, height); */
 
 
             base.Draw(gameTime);

@@ -1,35 +1,34 @@
 
 using System.IO;
 using System.Collections.Generic;
-using System.Drawing;
 using TiledMax;
+using Microsoft.Xna.Framework.Graphics;
+using System;
+using Microsoft.Xna.Framework;
 
 namespace AlienMuseumGame {
   public class Level : GraphicsObject {
-    Map levelmap;
+    Map levelMap;
     List<Entity> levelEnts;
     Texture2D background;
-    public Level(String levelpath, Graphics g){
-      try{
-	levelmap = Map.Open(levelpath);
-	background = convertBitmap(levelMap.DrawGdiPreview(true));
-	foreach(ObjectGroup grp in levelmap.ObjectGroups){
-	  foreach(MapObject mo in grp){
-	    Entity ent = Entity.MakeEnt(mo.Type, new Vector2(mo.X,mo.Y) mo.Properties);
-	    levelEnts.add(ent);
-	  }
+    public Level(String levelpath, GraphicsDeviceManager g){
+      levelMap = Map.Open(levelpath);
+      background = convertBitmap(levelMap.DrawGdiPreview(true), g.GraphicsDevice);
+      foreach(ObjectGroup grp in levelMap.ObjectGroups){
+	foreach(MapObject mo in grp){
+	  Entity ent = Entity.MakeEnt(mo.Type, new Vector2(mo.X,mo.Y), mo.Properties);
+	  levelEnts.Add(ent);
 	}
-				
-      } finally {
-	filestream.Close();
       }
+
     }
     public List<GraphicsObject> getDrawables(){
       List<GraphicsObject> drawables = new List<GraphicsObject>();
-      drawables.add(this);
-      drawables.addRange(levelEnts);
+      drawables.Add(this);
+      drawables.AddRange(levelEnts);
+      return drawables;
     }
-    private Texture2D convertBitmap(Bitmap bmp, Graphics g){
+    private Texture2D convertBitmap(System.Drawing.Bitmap bmp, GraphicsDevice g){
 
       Color[] pixels = new Color[bmp.Width * bmp.Height];
       for (int y = 0; y < bmp.Height; y++)
@@ -40,17 +39,13 @@ namespace AlienMuseumGame {
 	  pixels[(y * bmp.Width) + x] = new Color(c.R, c.G, c.B, c.A);
 	}
       }
+      Texture2D result = new Texture2D(g, bmp.Width, bmp.Height, false, SurfaceFormat.Color);
 		 	
-      Texture2D result = new Texture2D(
-	g.GraphicsDevice, 
-	bmp.Width, 
-	bmp.Height, 
-	1,
-	ResourceUsage.None,
-	SurfaceFormat.Color);
-		 	
-      myTex.SetData<Color>(pixels);
-      return myTex;
+      result.SetData<Color>(pixels);
+      return result;
     }
+    public Vector2 getPosition() { return Vector2.Zero;}
+    public Texture2D getTexture() { return background; }
+    public Microsoft.Xna.Framework.Rectangle getFinalRectangle() { return new Rectangle(0,0,background.Width, background.Height);}
   }
 }
