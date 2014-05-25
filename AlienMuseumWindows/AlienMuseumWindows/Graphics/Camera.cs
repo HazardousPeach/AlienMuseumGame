@@ -23,6 +23,8 @@ namespace AlienMuseumGame{
                      spriteBatch.Draw(obj.getTexture(), new Vector2(obj.getPosition().X, obj.getPosition().Y), Color.White);
                  }
 			}
+
+             spriteBatch.End();
 		 }
 
 		 private Vector2 worldToScreen(Vector2 point){

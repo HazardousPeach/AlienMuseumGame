@@ -83,16 +83,6 @@ namespace AlienMuseumWindows
         {
             GraphicsDevice.Clear(Color.Black);
 
-            int width;
-            int height;
-            int row;
-            int column;
-
-            for()
-            Rectangle sourceRectangle = new Rectangle(width * column, height * row, width, height);
-            Rectangle destinationRectangle = new Rectangle((int)location.X, (int)location.Y, width, height);
-
-
             base.Draw(gameTime);
         }
     }
