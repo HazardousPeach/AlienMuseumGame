@@ -1,4 +1,4 @@
-﻿#region Using Statements
+﻿﻿#region Using Statements
 using System;
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
@@ -9,7 +9,7 @@ using Microsoft.Xna.Framework.Storage;
 using Microsoft.Xna.Framework.GamerServices;
 #endregion
 
-namespace AlienMuseumWindows
+namespace AlienMuseumGame
 {
     /// <summary>
     /// This is the main type for your game
@@ -82,7 +82,6 @@ namespace AlienMuseumWindows
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.Black);
-
             base.Draw(gameTime);
         }
     }

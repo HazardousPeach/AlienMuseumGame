@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.IO;
 using System.IO.Compression;
-using zlib;
+using ICSharpCode.SharpZipLib;
 
 namespace TiledMax
 {
@@ -94,7 +94,7 @@ namespace TiledMax
             try
             {
                 MemoryStream input = new MemoryStream(data);
-                using (ZOutputStream zs = new ZOutputStream(output))
+				using (GZipStream zs = new GZipStream(output))
                 {
                     CopyStream(input, zs);
                 }
