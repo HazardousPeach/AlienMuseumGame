@@ -1,4 +1,5 @@
-﻿using System;
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -94,7 +95,7 @@ namespace TiledMax
             try
             {
                 MemoryStream input = new MemoryStream(data);
-				using (GZipStream zs = new GZipStream(output))
+				using (GZipStream zs = new GZipStream(output, CompressionMode.Decompress))
                 {
                     CopyStream(input, zs);
                 }
