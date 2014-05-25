@@ -25,5 +25,13 @@ namespace AlienMuseumGame{
 			curLevel.DrawBackground(camera);
 			camera.Draw(curLevel.getDrawables());
     }
+    public Level getLevel()
+    {
+        return curLevel;
+    }
+      public void FinishLevel(int levelnum)
+    {
+        Game1.ChangeGameStateUtility(levelnum, camera.sb);
+    }
   }
 }

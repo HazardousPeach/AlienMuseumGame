@@ -23,7 +23,7 @@ namespace AlienMuseumGame
 		public static Dictionary<String, Texture2D> textures;
 		public static Dictionary<String, Level> levels;
         public static Dictionary<String, SoundEffectInstance> sounds;
-
+        public static Player pl1;
         public Game1()
             : base()
         {
@@ -50,8 +50,12 @@ namespace AlienMuseumGame
 
 		protected void LoadTextures(){
 			// To load a texture: textures.Add("assetname", Content.Load<Texture2D>("assetpath"));
+<<<<<<< HEAD
 			textures = new Dictionary<string, Texture2D> ();
 			textures.Add ("player", Content.Load<Texture2D> ("NorthSlug"));
+=======
+            
+>>>>>>> 67fa25b29adda5e3ccb57bf3a4581e3fd368aed6
 		}
 		protected void LoadLevels(){
 			levels = new Dictionary<string, Level> ();
@@ -60,7 +64,7 @@ namespace AlienMuseumGame
 
         protected void LoadSounds()
         {
-          //
+            // To load a sound: sounds.Add("assetname", Content.Load<SoundEffectInstance>("assetpath"));
         }
         /// <summary>
         /// LoadContent will be called once per game and is the place to load
