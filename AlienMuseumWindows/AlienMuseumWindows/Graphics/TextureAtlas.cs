@@ -5,9 +5,9 @@ using System.Text;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
 
-namespace TextureAtlas
+namespace AlienMuseumGame
 {
-    public class AnimatedSprite
+	public class AnimatedSprite : Entity
     {
         public Texture2D Texture { get; set; }
         public int Rows { get; set; }
@@ -24,7 +24,7 @@ namespace TextureAtlas
             totalFrames = Rows * Columns;
         }
 
-        public void Update()
+		public override void Update()
         {
             currentFrame++;
             if (currentFrame == totalFrames)
@@ -35,29 +35,17 @@ namespace TextureAtlas
         {
             return new Vector2(Texture.Width / Columns, Texture.Height / Rows);
         }
-
-        public Rectangle getFinalRectangle(int frame)
+		public override Texture2D getTexture ()
+		{
+			return Texture;
+		}
+		public override Rectangle getFinalRectangle()
         {
-            int rowNum = frame / Columns;
-            int remainder = frame % Columns;
+			int rowNum = currentFrame / Columns;
+			int remainder = currentFrame % Columns;
             return new Rectangle(remainder*(Texture.Width / Columns), rowNum*(Texture.Height / Rows), 
                 Texture.Width / Columns, Texture.Height / Rows);
         }
 
-
-        public void Draw(SpriteBatch spriteBatch, Vector2 location)
-        {
-            int width = Texture.Width / Columns;
-            int height = Texture.Height / Rows;
-            int row = (int)((float)currentFrame / (float)Columns);
-            int column = currentFrame % Columns;
-
-            Rectangle sourceRectangle = new Rectangle(width * column, height * row, width, height);
-            Rectangle destinationRectangle = new Rectangle((int)location.X, (int)location.Y, width, height);
-
-            spriteBatch.Begin();
-            spriteBatch.Draw(Texture, destinationRectangle, sourceRectangle, Color.White);
-            spriteBatch.End();
-        }
     }
 }
