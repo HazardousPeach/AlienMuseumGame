@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace AlienMuseumGame{
 	  public class Camera {
-	  	 private SpriteBatch sb;
+	  	 public SpriteBatch sb;
 		 private Rectangle display;
 		 private Rectangle viewport;
 		 public Camera(SpriteBatch batch, Vector2 displayDimensions, Vector2 viewportDimensions){

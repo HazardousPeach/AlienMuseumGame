@@ -20,5 +20,13 @@ namespace AlienMuseumGame{
     public override void Draw(){
 			camera.Draw(curLevel.getDrawables());
     }
+    public Level getLevel()
+    {
+        return curLevel;
+    }
+      public void FinishLevel(int levelnum)
+    {
+        Game1.ChangeGameStateUtility(levelnum, camera.sb);
+    }
   }
 }
