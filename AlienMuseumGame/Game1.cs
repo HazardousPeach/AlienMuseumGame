@@ -15,7 +15,9 @@ namespace AlienMuseumGame
 	{
 		GraphicsDeviceManager graphics;
 		SpriteBatch spriteBatch;
-
+		const string playerSpritePath = "Player.png";
+		Player theplayer;
+		Camera thecamera;
 		public Game1 ()
 		{
 			graphics = new GraphicsDeviceManager (this);
@@ -45,7 +47,9 @@ namespace AlienMuseumGame
 			// Create a new SpriteBatch, which can be used to draw textures.
 			spriteBatch = new SpriteBatch (GraphicsDevice);
 
-			//TODO: use this.Content to load your game content here 
+			//TODO: use this.Content to load your game content here
+			theplayer = new Player(Content.Load<Texture2D>(playerSpritePath));
+			thecamera = new Camera(spriteBatch, new Vector2(800,600), new Vector2(1000,1000));
 		}
 
 		/// <summary>
@@ -59,7 +63,8 @@ namespace AlienMuseumGame
 			if (GamePad.GetState (PlayerIndex.One).Buttons.Back == ButtonState.Pressed) {
 				Exit ();
 			}
-			// TODO: Add your update logic here			
+			// TODO: Add your update logic here
+			theplayer.Update();
 			base.Update (gameTime);
 		}
 
@@ -72,6 +77,7 @@ namespace AlienMuseumGame
 			graphics.GraphicsDevice.Clear (Color.Black);
 		
 			//TODO: Add your drawing code here
+			thecamera.Draw(new List<GraphicsObject>(theplayer));
             
 			base.Draw (gameTime);
 		}
