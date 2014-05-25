@@ -24,7 +24,9 @@ namespace AlienMuseumGame{
 		     {
 					Texture2D tex = obj.getTexture ();
 					Vector2 position = obj.getPosition();
-					sb.Draw(tex, position, Color.White);
+					Rectangle srcrect = obj.getFinalRectangle();
+					sb.Draw(tex, position,
+						srcrect, Color.White);
 		     }
 		   }
 

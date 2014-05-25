@@ -12,22 +12,24 @@ namespace AlienMuseumGame
         public Texture2D Texture { get; set; }
         public int Rows { get; set; }
         public int Columns { get; set; }
+		public int FrameDelay{ get; set; }
         private int currentFrame;
         private int totalFrames;
 
-        public AnimatedSprite(Texture2D texture, int rows, int columns)
+		public AnimatedSprite(Texture2D texture, int rows, int columns, int framedelay)
         {
             Texture = texture;
             Rows = rows;
             Columns = columns;
             currentFrame = 0;
             totalFrames = Rows * Columns;
+			FrameDelay = framedelay;
         }
 
 		public override void Update()
         {
             currentFrame++;
-            if (currentFrame == totalFrames)
+			if (currentFrame == totalFrames * FrameDelay)
                 currentFrame = 0;
         }
 
@@ -41,8 +43,8 @@ namespace AlienMuseumGame
 		}
 		public override Rectangle getFinalRectangle()
         {
-			int rowNum = currentFrame / Columns;
-			int remainder = currentFrame % Columns;
+			int rowNum = (currentFrame / FrameDelay) / Columns;
+			int remainder = (currentFrame / FrameDelay) % Columns;
             return new Rectangle(remainder*(Texture.Width / Columns), rowNum*(Texture.Height / Rows), 
                 Texture.Width / Columns, Texture.Height / Rows);
         }
