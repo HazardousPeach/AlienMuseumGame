@@ -50,17 +50,6 @@
     <Compile Include="Sound\Sound.cs" />
     <Compile Include="States\GameState.cs" />
     <Compile Include="States\PlayState.cs" />
-    <Compile Include="TiledMax\GZip.cs" />
-    <Compile Include="TiledMax\Image.cs" />
-    <Compile Include="TiledMax\Layer.cs" />
-    <Compile Include="TiledMax\LoadingLog.cs" />
-    <Compile Include="TiledMax\Map.cs" />
-    <Compile Include="TiledMax\MapObject.cs" />
-    <Compile Include="TiledMax\ObjectGroup.cs" />
-    <Compile Include="TiledMax\Properties.cs" />
-    <Compile Include="TiledMax\Tile.cs" />
-    <Compile Include="TiledMax\TileSet.cs" />
-    <Compile Include="TiledMax\Xml.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="ICSharpCode.SharpZipLib">
@@ -84,11 +73,16 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Icon.ico" />
-    <Content Include="TiledMax\TiledMax.csproj" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Content\Music\" />
     <Folder Include="Content\SoundFX\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="TiledSharp-master\TiledSharp\TiledSharp.csproj">
+      <Project>{e4130f8d-d301-4e0c-916d-489c4a23c9b1}</Project>
+      <Name>TiledSharp</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -9,6 +9,6 @@ namespace AlienMuseumGame
 {
     public class Sound
     {
-        public static Sound()
+        public static Sound();
     }
 }
