@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -21,6 +22,7 @@ namespace AlienMuseumGame
 		public static GameState gameState;
 		public static Dictionary<String, Texture2D> textures;
 		public static Dictionary<String, Level> levels;
+        public static Dictionary<String, SoundEffectInstance> sounds;
 
         public Game1()
             : base()
@@ -53,6 +55,10 @@ namespace AlienMuseumGame
 			levels.Add("testlevel", new Level("testlevel1.tmx", Content));
 		}
 
+        protected void LoadSounds()
+        {
+          //
+        }
         /// <summary>
         /// LoadContent will be called once per game and is the place to load
         /// all of your content.
@@ -64,6 +70,7 @@ namespace AlienMuseumGame
 			LoadTextures ();
 			LoadLevels();
 			InitialGameState ();
+            LoadSounds();
 
             // TODO: use this.Content to load your game content here
         }
