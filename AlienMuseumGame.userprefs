@@ -1,16 +1,39 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="AlienMuseumWindows/AlienMuseumWindows/Entity/Player.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="AlienMuseumWindows/AlienMuseumWindows/Game1.cs">
     <Files>
-      <File FileName="AlienMuseumWindows/AlienMuseumWindows/Entity/Level.cs" Line="1" Column="1" />
-      <File FileName="AlienMuseumWindows/AlienMuseumWindows/Game1.cs" Line="13" Column="1" />
-      <File FileName="AlienMuseumWindows/AlienMuseumWindows/Entity/Entity.cs" Line="22" Column="15" />
-      <File FileName="AlienMuseumWindows/AlienMuseumWindows/Entity/Player.cs" Line="35" Column="52" />
-      <File FileName="AlienMuseumWindows/AlienMuseumWindows/TiledMax/GZip.cs" Line="97" Column="79" />
+      <File FileName="AlienMuseumWindows/AlienMuseumWindows/Entity/Level.cs" Line="27" Column="1" />
+      <File FileName="AlienMuseumWindows/AlienMuseumWindows/Game1.cs" Line="24" Column="36" />
     </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State expanded="True">
+          <Node name="AlienMuseumGame" expanded="True">
+            <Node name="References" expanded="True" />
+            <Node name="Content" expanded="True" />
+            <Node name="Entity" expanded="True" />
+            <Node name="Graphics" expanded="True" />
+            <Node name="States" expanded="True" />
+            <Node name="Game1.cs" selected="True" />
+          </Node>
+          <Node name="TiledSharp" expanded="True">
+            <Node name="References" expanded="True" />
+            <Node name="src" expanded="True" />
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
+    <BreakpointStore>
+      <Breakpoint file="/home/alex/AlienMuseumGame/AlienMuseumWindows/AlienMuseumWindows/TiledMax/Map.cs" line="273" column="3" />
+      <Breakpoint file="/home/alex/AlienMuseumGame/AlienMuseumWindows/AlienMuseumWindows/TiledMax/Map.cs" line="268" column="2" />
+      <Breakpoint file="/home/alex/AlienMuseumGame/AlienMuseumWindows/AlienMuseumWindows/TiledMax/Map.cs" line="262" column="6" />
+      <Breakpoint file="/home/alex/AlienMuseumGame/AlienMuseumWindows/AlienMuseumWindows/TiledMax/Map.cs" line="182" column="36" />
+      <Breakpoint file="/home/alex/AlienMuseumGame/AlienMuseumWindows/AlienMuseumWindows/Tiled.cs" line="634" column="6" />
+    </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches>
+    <Watch file="AlienMuseumWindows/AlienMuseumWindows/TiledMax/Map.cs" line="148" offsetX="336" offsetY="3234" expression="node" liveUpdate="False" />
+  </MonoDevelop.Ide.DebuggingService.PinnedWatches>
 </Properties>
