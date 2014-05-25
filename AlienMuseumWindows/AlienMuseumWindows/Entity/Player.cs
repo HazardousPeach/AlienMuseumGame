@@ -37,6 +37,19 @@ namespace AlienMuseumGame{
       if (dPos != Vector2.Zero)
 	base.Update ();
       this.position += dPos;
+
+            if (Math.Abs(dPos.X) > Math.Abs(dPos.Y)){
+	if (dPos.X < 0)
+	  this.CurrentAnim = 2;
+	else if (dPos.X > 0)
+	  this.CurrentAnim = 3;
+      } else {
+	if (dPos.Y < 0)
+	  this.CurrentAnim = 1;
+	else
+	  this.CurrentAnim = 0;
+      }
+
     }
   }
 }

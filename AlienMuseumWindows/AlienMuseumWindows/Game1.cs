@@ -52,6 +52,7 @@ namespace AlienMuseumGame
 			// To load a texture: textures.Add("assetname", Content.Load<Texture2D>("assetpath"));
 			textures = new Dictionary<string, Texture2D> ();
 			textures.Add ("player", Content.Load<Texture2D> ("NorthSlug"));
+			textures.Add ("overlay", Content.Load<Texture2D> ("screenOverlay"));
 		}
 		protected void LoadLevels(){
 			levels = new Dictionary<string, Level> ();
