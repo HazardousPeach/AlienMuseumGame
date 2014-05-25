@@ -21,12 +21,12 @@ namespace AlienMuseumGame{
             this.position = position;
         }
         
-        public static Wall makeWall(Vector2 position, Dictionary<string, string> Diction){
+        public static Wall MakeWall(Vector2 position, Dictionary<string, string> Diction){
             return new Wall(Diction);
         }
         
         static Wall(){
-            Entity.RegisterEntity("Wall", makeWall);
+            Entity.RegisterEntity("Wall", MakeWall);
 
         }
     }

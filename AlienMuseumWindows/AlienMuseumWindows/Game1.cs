@@ -22,7 +22,7 @@ namespace AlienMuseumGame
 		public static GameState gameState;
 		public static Dictionary<String, Texture2D> textures;
         public static Dictionary<String, SoundEffectInstance> sounds;
-
+        public static Player pl1;
         public Game1()
             : base()
         {
