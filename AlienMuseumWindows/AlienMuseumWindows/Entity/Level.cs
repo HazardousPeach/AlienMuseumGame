@@ -35,5 +35,14 @@ namespace AlienMuseumGame {
     public void DrawBackground(Camera camera){
 			//levelMap.Draw(camera.sb, camera.display, new Vector2(camera.viewport.X, camera.viewport.Y));
     }
+    public List<Wall> getWalls()
+    {
+        List<Wall> walls = new List<Wall>();
+        foreach (Wall w in levelEnts)
+        {
+            walls.Add(w);
+        }
+        return walls;
+    }
   }
 }

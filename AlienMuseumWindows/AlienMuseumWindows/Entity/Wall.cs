@@ -5,7 +5,6 @@ using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Graphics;
-using TiledMax;
 using System.Collections.Generic;
 
 namespace AlienMuseumGame{
@@ -28,6 +27,11 @@ namespace AlienMuseumGame{
         static Wall(){
             Entity.RegisterEntity("Wall", MakeWall);
 
+        }
+        public Vector2 getWallLoc()
+        {
+            return position;
+     
         }
     }
     

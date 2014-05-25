@@ -3,6 +3,7 @@
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using Microsoft.Xna.Framework;
+using System.Collections.Generic;
 
 
 namespace AlienMuseumGame{
@@ -29,5 +30,6 @@ namespace AlienMuseumGame{
     {
         Game1.ChangeGameStateUtility(levelnum, camera.sb);
     }
+      public List<Wall> getWalls() { return curLevel.getWalls(); }
   }
 }
