@@ -15,6 +15,7 @@ namespace AlienMuseumGame{
     
     public Player(Vector2 position){
 			this.position = position;
+			PlayerTex = Game1.textures ["player"];
     }
       public static Player MakePlayer(Vector2 position, Properties properties){
 	return new Player(position);
