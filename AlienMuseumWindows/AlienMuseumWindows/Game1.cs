@@ -29,7 +29,7 @@ namespace AlienMuseumGame
         }
 
         public void InitialGameState(){
-            gameState = new UtilityGameState(0, spriteBatch);
+            gameState = new UtilityState(0, spriteBatch);
         }
 
         /// <summary>
@@ -86,7 +86,7 @@ namespace AlienMuseumGame
 
         public static void ChangeGameStateUtility(int level, SpriteBatch changeBatch)
         {
-            gameState = new UtilityGameState(level, changeBatch);
+            gameState = new UtilityState(level, changeBatch);
         }
 
         public static void ChangeGameStatePlay(int level, SpriteBatch changeBatch)
