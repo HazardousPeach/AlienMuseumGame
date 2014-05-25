@@ -12,10 +12,19 @@ namespace AlienMuseumGame{
 			display = new Rectangle(0,0, (int)displayDimensions.X, (int)displayDimensions.Y);
 			viewport = new Rectangle(0,0, (int)viewportDimensions.X, (int)viewportDimensions.Y);
 		 }
-		 public void Draw(List<GraphicsObject> objects){
-		 	foreach(GraphicsObject obj in objects){
+		 public void Draw(SpriteBatch spriteBatch, List<GraphicsObject> objects){
+             spriteBatch.Begin();
+             foreach(GraphicsObject obj in objects){
+                 if(obj.getPosition().X + obj.getFinalRectangle().Width > viewport.Left &&
+                     obj.getPosition().X < viewport.Right &&
+                     obj.getPosition().Y > viewport.Bottom &&
+                     obj.getPosition().Y + obj.getFinalRectangle().Height > viewport.Top)
+                 {
+                     spriteBatch.Draw(obj.getTexture(), new Vector2(obj.getPosition().X, obj.getPosition().Y), Color.White);
+                 }
 			}
 		 }
+
 		 private Vector2 worldToScreen(Vector2 point){
 			return Vector2.Zero;
 		 }
