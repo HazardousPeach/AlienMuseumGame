@@ -10,13 +10,7 @@ namespace AlienMuseumWindows.GameState
         public GameState()
         {       
         }
-        public abstract void Draw()
-        {
-
-        }
-        public abstract void Update()
-        {
-
-        }
+        public abstract void Draw();
+        public abstract void Update();
     }
 }
