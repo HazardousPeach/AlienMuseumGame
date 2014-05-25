@@ -15,18 +15,16 @@ namespace AlienMuseumGame{
 		 public void Draw(List<GraphicsObject> objects){
 		   sb.Begin();
 		   foreach(var obj in objects){
-				Vector2 pos = obj.getPosition ();
+				Vector2 pos = obj.getPosition() - new Vector2(viewport.X, viewport.Y);;
 				Rectangle rect = obj.getFinalRectangle ();
-				if(pos.X + rect.Width > viewport.Left &&
-					pos.X < viewport.Right &&
-					pos.Y < viewport.Bottom &&
-					pos.Y + rect.Height > viewport.Top)
+				if(pos.X + rect.Width > 0 &&
+					pos.X < viewport.Width &&
+					pos.Y < viewport.Height &&
+					pos.Y + rect.Height > 0)
 		     {
 					Texture2D tex = obj.getTexture ();
-					Vector2 position = obj.getPosition();
-					Rectangle srcrect = obj.getFinalRectangle();
-					sb.Draw(tex, position,
-						srcrect, Color.White);
+					sb.Draw(tex, pos,
+						rect, Color.White);
 		     }
 		   }
 

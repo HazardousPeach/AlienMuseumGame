@@ -18,8 +18,9 @@ namespace AlienMuseumGame{
     
     public override void Update(){
 			curLevel.updateEnts();
-			Vector2 playerPos = 
-			camera.display = new Rectangle(curLevel.get
+			Vector2 playerPos = curPlayer.getPosition();
+			camera.viewport = new Rectangle((int)playerPos.X + curPlayer.Texture.Width / curPlayer.Columns / 2 - (camera.viewport.Width / 2),
+				(int)playerPos.Y + curPlayer.Texture.Height / curPlayer.Columns / 2 - (camera.viewport.Height / 2), camera.viewport.Width, camera.viewport.Height);
     }
     public override void Draw(){
 			curLevel.DrawBackground(camera);

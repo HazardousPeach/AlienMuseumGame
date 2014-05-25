@@ -20,7 +20,7 @@ namespace AlienMuseumGame{
     public static void RegisterEntity(String name, EntityFactory template){
 			factories.Add(name, template);
     }
-    public Vector2 getPosition(){ return position; }
+		public Vector2 getPosition(){ return position; }
     public abstract void Update();
     public abstract Texture2D getTexture();
 	public abstract Rectangle getFinalRectangle();
