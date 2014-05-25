@@ -2,6 +2,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Graphics;
 using System.Collections.Generic;
+using System;
 
 namespace AlienMuseumGame{
   public class Player : AnimatedSprite{
@@ -38,16 +39,16 @@ namespace AlienMuseumGame{
 	base.Update ();
       this.position += dPos;
 
-            if (Math.Abs(dPos.X) > Math.Abs(dPos.Y)){
+			if (Math.Abs(dPos.X) >= Math.Abs(dPos.Y)){
 	if (dPos.X < 0)
 	  this.CurrentAnim = 2;
 	else if (dPos.X > 0)
 	  this.CurrentAnim = 3;
       } else {
 	if (dPos.Y < 0)
-	  this.CurrentAnim = 1;
+					this.CurrentAnim = 0;
 	else
-	  this.CurrentAnim = 0;
+					this.CurrentAnim = 1;
       }
 
     }

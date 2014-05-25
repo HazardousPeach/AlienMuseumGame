@@ -44,9 +44,9 @@ namespace AlienMuseumGame
 		}
 		public override Rectangle getFinalRectangle()
         {
-			int rowNum = (currentFrame / FrameDelay);
-			int colNum = CurrentAnim;
-            return new Rectangle(remainder*(Texture.Width / Columns), rowNum*(Texture.Height / Rows), 
+			int colNum = (currentFrame / FrameDelay);
+			int rowNum = CurrentAnim;
+			return new Rectangle(colNum*(Texture.Width / Columns), rowNum*(Texture.Height / Rows), 
                 Texture.Width / Columns, Texture.Height / Rows);
         }
 
