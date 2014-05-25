@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -20,6 +21,7 @@ namespace AlienMuseumGame
         SpriteBatch spriteBatch;
 		public static GameState gameState;
 		public static Dictionary<String, Texture2D> textures;
+        public static Dictionary<String, SoundEffectInstance> sounds;
 
         public Game1()
             : base()
@@ -48,6 +50,10 @@ namespace AlienMuseumGame
 			// To load a texture: textures.Add("assetname", Content.Load<Texture2D>("assetpath"));
 		}
 
+        protected void LoadSounds()
+        {
+          //
+        }
         /// <summary>
         /// LoadContent will be called once per game and is the place to load
         /// all of your content.
@@ -58,6 +64,7 @@ namespace AlienMuseumGame
 			spriteBatch = new SpriteBatch(GraphicsDevice);
 			LoadTextures ();
 			InitialGameState ();
+            LoadSounds();
 
             // TODO: use this.Content to load your game content here
         }
