@@ -18,6 +18,9 @@ namespace AlienMuseumGame
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
+        enum gameState : int {titleScreen, gamePlaying, utilityScreen, gameLost};
+
+        gameState currentGameState = gameState.titleScreen;
 
         public Game1()
             : base()
@@ -25,6 +28,8 @@ namespace AlienMuseumGame
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
         }
+
+
 
         /// <summary>
         /// Allows the game to perform any initialization it needs to before starting to run.
@@ -69,8 +74,25 @@ namespace AlienMuseumGame
         {
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
+            switch (currentGameState)
+            {
+                case gameState.titleScreen:
+                    if (Keyboard.GetState().IsKeyDown(Keys.Enter))
+                        currentGameState = gameState.utilityScreen;
+                    break;
+                case gameState.gamePlaying:
+                    break;
 
-            // TODO: Add your update logic here
+                case gameState.utilityScreen:
+
+                    break;
+                case gameState.gameLost:
+
+                    break;
+            }
+
+            
+            
 
             base.Update(gameTime);
         }
@@ -82,6 +104,22 @@ namespace AlienMuseumGame
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.Black);
+            spriteBatch.Begin();
+            switch (currentGameState)
+            {
+                case gameState.titleScreen:
+                    spriteBatch.Draw(, , Color.White); //Game title screen
+                    break;
+                case gameState.gamePlaying:
+
+                    break;
+                case gameState.utilityScreen:
+
+                    break;
+                case gameState.gameLost:
+
+                    break;
+            }
             base.Draw(gameTime);
         }
     }
