@@ -1,17 +1,25 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Graphics;
+using TiledMax;
 
 namespace AlienMuseumGame{
   public class Player : Entity{
     
-    Texture2D playerTex;
+    public static Texture2D PlayerTex {get;set;}
     Vector2 pos;
-    
-    public Player(Texture2D texture){
-      playerTex = texture;
-      pos = Vector2.Zero;
+
+    static Player(){
+      Entity.RegisterEntity("player", MakePlayer);
     }
+     
+    
+    private Player(Vector2 position){
+      pos = position;
+    }
+      public static Player MakePlayer(Vector2 position, Properties properties){
+	return new Player(position);
+      }
     public void Update(){
       float speed = 3.0f;
       Vector2 dPos = Vector2.Zero;
@@ -24,7 +32,7 @@ namespace AlienMuseumGame{
 
       pos += dPos;
     }
-    public override Texture2D getTexture(){ return playerTex;}
-    public override Rectangle getFinalRectangle(){ return new Rectangle(0,0,playerTex.Width, playerTex.Height); }
+    public override Texture2D getTexture(){ return PlayerTex;}
+    public override Rectangle getFinalRectangle(){ return new Rectangle(0,0,PlayerTex.Width, PlayerTex.Height); }
   }
 }
