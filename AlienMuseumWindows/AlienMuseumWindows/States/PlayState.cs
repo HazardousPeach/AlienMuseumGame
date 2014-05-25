@@ -1,8 +1,10 @@
 
 
+using Microsoft.Xna.Framework.Graphics;
+using System;
 namespace AlienMuseumGame{
   public class PlayState : GameState {
-    static const String[] levelpaths = { "testlevel1.tmx" }
+    static String[] levelpaths = { "testlevel1.tmx" };
     Level curLevel;
     Camera camera;
     public PlayState(int levelnum, SpriteBatch batch){

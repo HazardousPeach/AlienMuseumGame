@@ -13,7 +13,7 @@ namespace AlienMuseumGame {
     Texture2D background;
     public Level(String levelpath, GraphicsDeviceManager g){
       levelMap = Map.Open(levelpath);
-      background = convertBitmap(levelMap.DrawGdiPreview(true), g.GraphicsDevice);
+      background = convertBitmap(levelMap.DrawGdiPreview(true));
       foreach(ObjectGroup grp in levelMap.ObjectGroups){
 	foreach(MapObject mo in grp){
 	  Entity ent = Entity.MakeEnt(mo.Type, new Vector2(mo.X,mo.Y), mo.Properties);

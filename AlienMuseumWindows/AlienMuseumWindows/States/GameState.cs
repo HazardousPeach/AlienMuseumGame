@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace AlienMuseumWindows.GameState
+namespace AlienMuseumGame
 {
     public abstract class GameState
     {

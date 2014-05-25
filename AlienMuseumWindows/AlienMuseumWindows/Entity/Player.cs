@@ -19,7 +19,7 @@ namespace AlienMuseumGame{
       public static Player MakePlayer(Vector2 position, Properties properties){
 	return new Player(position);
       }
-    public void Update(){
+    public override void Update(){
 			float speed = 7.0f;
       Vector2 dPos = Vector2.Zero;
       KeyboardState keystate = Keyboard.GetState();
