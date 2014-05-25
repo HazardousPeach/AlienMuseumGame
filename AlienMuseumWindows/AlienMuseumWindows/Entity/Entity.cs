@@ -9,7 +9,7 @@ namespace AlienMuseumGame{
   public abstract class Entity : GraphicsObject{
     public delegate Entity EntityFactory(Vector2 position, Properties properties);
     private static Dictionary<String, EntityFactory> factories = new Dictionary<String, EntityFactory>();
-    Vector2 position;
+    protected Vector2 position;
     
     public static Entity MakeEnt(String typename, Vector2 position, Properties properties){
       if (factories.ContainsKey(typename)){

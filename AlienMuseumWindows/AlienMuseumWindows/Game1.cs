@@ -18,9 +18,7 @@ namespace AlienMuseumGame
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
-        enum gameState : int {titleScreen, gamePlaying, utilityScreen, gameLost};
-
-        gameState currentGameState = gameState.titleScreen;
+        GameState gameState;
 
         public Game1()
             : base()
@@ -29,7 +27,9 @@ namespace AlienMuseumGame
             Content.RootDirectory = "Content";
         }
 
-
+        public static void InitialGameState(){
+            gameState = new UtilityGameState(0, spriteBatch);
+        }
 
         /// <summary>
         /// Allows the game to perform any initialization it needs to before starting to run.
@@ -74,27 +74,20 @@ namespace AlienMuseumGame
         {
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
-            switch (currentGameState)
-            {
-                case gameState.titleScreen:
-                    if (Keyboard.GetState().IsKeyDown(Keys.Enter))
-                        currentGameState = gameState.utilityScreen;
-                    break;
-                case gameState.gamePlaying:
-                    break;
-
-                case gameState.utilityScreen:
-
-                    break;
-                case gameState.gameLost:
-
-                    break;
-            }
-
             
             
 
             base.Update(gameTime);
+        }
+
+        public static void ChangeGameStateUtility(int level, SpriteBatch changeBatch)
+        {
+            gameState = new UtilityGameState(level, changeBatch);
+        }
+
+        public static void ChangeGameStatePlay(int level, SpriteBatch changeBatch)
+        {
+            gameState = new PlayGameState(level, changeBatch);
         }
 
         /// <summary>
@@ -105,21 +98,8 @@ namespace AlienMuseumGame
         {
             GraphicsDevice.Clear(Color.Black);
             spriteBatch.Begin();
-            switch (currentGameState)
-            {
-                case gameState.titleScreen:
-                    spriteBatch.Draw(, , Color.White); //Game title screen
-                    break;
-                case gameState.gamePlaying:
+            
 
-                    break;
-                case gameState.utilityScreen:
-
-                    break;
-                case gameState.gameLost:
-
-                    break;
-            }
             base.Draw(gameTime);
         }
     }
