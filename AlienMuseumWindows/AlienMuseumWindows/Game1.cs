@@ -1,4 +1,4 @@
-﻿﻿#region Using Statements
+﻿﻿﻿#region Using Statements
 using System;
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
@@ -51,12 +51,12 @@ namespace AlienMuseumGame
 		protected void LoadTextures(){
 			// To load a texture: textures.Add("assetname", Content.Load<Texture2D>("assetpath"));
 			textures = new Dictionary<string, Texture2D> ();
-			textures.Add ("player", Content.Load<Texture2D> ("NorthSlug"));
+			textures.Add ("player", Content.Load<Texture2D> ("SlugSheet"));
 			textures.Add ("overlay", Content.Load<Texture2D> ("screenOverlay"));
 		}
 		protected void LoadLevels(){
 			levels = new Dictionary<string, Level> ();
-			levels.Add("testlevel", new Level("testlevel1.tmx", Content));
+			levels.Add("Tutorial", new Level("testlevel1.tmx", Content));
 		}
 
         protected void LoadSounds()

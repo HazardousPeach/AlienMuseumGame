@@ -8,7 +8,7 @@ using System.Collections.Generic;
 
 namespace AlienMuseumGame{
   public class PlayState : GameState {
-    static String[] levels = { "testlevel" };
+		static String[] levels = { "Tutorial" };
 		Level curLevel;
     Camera camera;
     public Player curPlayer;

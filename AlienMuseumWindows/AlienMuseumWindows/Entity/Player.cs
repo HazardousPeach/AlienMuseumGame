@@ -7,7 +7,7 @@ using System;
 namespace AlienMuseumGame{
   public class Player : AnimatedSprite{
 		public bool positionSet = false;
-    public Player(Vector2 position) : base(Game1.textures["player"], 1,7, 5){
+		public Player(Vector2 position) : base(Game1.textures["player"], 4,7, 5){
 			this.position = position;
     }
     public static Player MakePlayer(Vector2 position, Dictionary<string, string> properties){
@@ -41,9 +41,9 @@ namespace AlienMuseumGame{
 
 			if (Math.Abs(dPos.X) >= Math.Abs(dPos.Y)){
 	if (dPos.X < 0)
-	  this.CurrentAnim = 2;
+					this.CurrentAnim = 3;
 	else if (dPos.X > 0)
-	  this.CurrentAnim = 3;
+					this.CurrentAnim = 2;
       } else {
 	if (dPos.Y < 0)
 					this.CurrentAnim = 0;
