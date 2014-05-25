@@ -8,8 +8,8 @@ using System.Collections.Generic;
 
 namespace AlienMuseumGame{
   public class PlayState : GameState {
-		static String[] levels = { "Tutorial" };
-		Level curLevel;
+    static String[] levels = { "Tutorial" };
+    Level curLevel;
     Camera camera;
     public Player curPlayer;
 		Overlay over;
@@ -28,19 +28,19 @@ namespace AlienMuseumGame{
 			public Vector2 getPosition(){return new Vector2(cam_.viewport.X, cam_.viewport.Y);}
 			public Texture2D getTexture() {
 				return tex;
-			}
+    }
 			public Rectangle getFinalRectangle(){
 				return new Rectangle (0, 0, tex.Width, tex.Height);
 			}
 		}
     public override void Update(){
-			curLevel.updateEnts();
+      curLevel.updateEnts();
 			Vector2 playerPos = curPlayer.getPosition();
 			camera.viewport = new Rectangle((int)playerPos.X + curPlayer.Texture.Width / curPlayer.Columns / 2 - (camera.viewport.Width / 2),
 				(int)playerPos.Y + curPlayer.Texture.Height / curPlayer.Columns / 2 - (camera.viewport.Height / 2), camera.viewport.Width, camera.viewport.Height);
     }
     public override void Draw(){
-			curLevel.DrawBackground(camera);
+      curLevel.DrawBackground(camera);
 			List<GraphicsObject> drawables = new List<GraphicsObject> (curLevel.getDrawables ());
 			drawables.Add (over);
 			camera.Draw(drawables);
@@ -53,5 +53,6 @@ namespace AlienMuseumGame{
     {
         Game1.ChangeGameStateUtility(levelnum, camera.sb);
     }
+      public List<Wall> getWalls() { return curLevel.getWalls(); }
   }
 }
