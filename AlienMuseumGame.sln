@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlienMuseumGame", "AlienMuseumGame\AlienMuseumGame.csproj", "{8ADCD24C-E5F6-48C2-A676-1890D3087E9C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TiledSharp", "AlienMuseumWindows\AlienMuseumWindows\TiledSharp-master\TiledSharp\TiledSharp.csproj", "{E4130F8D-D301-4E0C-916D-489C4A23C9B1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
@@ -13,6 +15,10 @@ Global
 		{8ADCD24C-E5F6-48C2-A676-1890D3087E9C}.Debug|x86.Build.0 = Debug|x86
 		{8ADCD24C-E5F6-48C2-A676-1890D3087E9C}.Release|x86.ActiveCfg = Release|x86
 		{8ADCD24C-E5F6-48C2-A676-1890D3087E9C}.Release|x86.Build.0 = Release|x86
+		{E4130F8D-D301-4E0C-916D-489C4A23C9B1}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{E4130F8D-D301-4E0C-916D-489C4A23C9B1}.Debug|x86.Build.0 = Debug|Any CPU
+		{E4130F8D-D301-4E0C-916D-489C4A23C9B1}.Release|x86.ActiveCfg = Release|Any CPU
+		{E4130F8D-D301-4E0C-916D-489C4A23C9B1}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
 		StartupItem = AlienMuseumGame\AlienMuseumGame.csproj

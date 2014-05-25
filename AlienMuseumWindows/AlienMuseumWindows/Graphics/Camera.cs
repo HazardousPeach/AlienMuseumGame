@@ -5,8 +5,8 @@ using System.Collections.Generic;
 namespace AlienMuseumGame{
 	  public class Camera {
 	  	 public SpriteBatch sb;
-		 private Rectangle display;
-		 private Rectangle viewport;
+		 public Rectangle display;
+		 public Rectangle viewport;
 		 public Camera(SpriteBatch batch, Vector2 displayDimensions, Vector2 viewportDimensions){
 		 	sb = batch;
 			display = new Rectangle(0,0, (int)displayDimensions.X, (int)displayDimensions.Y);
@@ -22,7 +22,9 @@ namespace AlienMuseumGame{
 					pos.Y < viewport.Bottom &&
 					pos.Y + rect.Height > viewport.Top)
 		     {
-		       sb.Draw(obj.getTexture(), new Vector2(obj.getPosition().X, obj.getPosition().Y), Color.White);
+					Texture2D tex = obj.getTexture ();
+					Vector2 position = obj.getPosition();
+					sb.Draw(tex, position, Color.White);
 		     }
 		   }
 

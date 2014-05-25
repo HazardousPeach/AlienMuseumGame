@@ -46,9 +46,6 @@
       <Private>False</Private>
       <Package>monogame</Package>
     </Reference>
-    <Reference Include="ICSharpCode.SharpZipLib">
-      <HintPath>..\..\Downloads\net-20\ICSharpCode.SharpZipLib.dll</HintPath>
-    </Reference>
     <Reference Include="System.Drawing" />
   </ItemGroup>
   <ItemGroup>
@@ -73,57 +70,45 @@
     <Compile Include="..\AlienMuseumWindows\AlienMuseumWindows\Entity\Level.cs">
       <Link>Entity\Level.cs</Link>
     </Compile>
-    <Compile Include="..\AlienMuseumWindows\AlienMuseumWindows\TiledMax\GZip.cs">
-      <Link>TiledMax\GZip.cs</Link>
-    </Compile>
-    <Compile Include="..\AlienMuseumWindows\AlienMuseumWindows\TiledMax\Image.cs">
-      <Link>TiledMax\Image.cs</Link>
-    </Compile>
-    <Compile Include="..\AlienMuseumWindows\AlienMuseumWindows\TiledMax\Layer.cs">
-      <Link>TiledMax\Layer.cs</Link>
-    </Compile>
-    <Compile Include="..\AlienMuseumWindows\AlienMuseumWindows\TiledMax\LoadingLog.cs">
-      <Link>TiledMax\LoadingLog.cs</Link>
-    </Compile>
-    <Compile Include="..\AlienMuseumWindows\AlienMuseumWindows\TiledMax\Map.cs">
-      <Link>TiledMax\Map.cs</Link>
-    </Compile>
-    <Compile Include="..\AlienMuseumWindows\AlienMuseumWindows\TiledMax\MapObject.cs">
-      <Link>TiledMax\MapObject.cs</Link>
-    </Compile>
-    <Compile Include="..\AlienMuseumWindows\AlienMuseumWindows\TiledMax\ObjectGroup.cs">
-      <Link>TiledMax\ObjectGroup.cs</Link>
-    </Compile>
-    <Compile Include="..\AlienMuseumWindows\AlienMuseumWindows\TiledMax\Properties.cs">
-      <Link>TiledMax\Properties.cs</Link>
-    </Compile>
-    <Compile Include="..\AlienMuseumWindows\AlienMuseumWindows\TiledMax\Tile.cs">
-      <Link>TiledMax\Tile.cs</Link>
-    </Compile>
-    <Compile Include="..\AlienMuseumWindows\AlienMuseumWindows\TiledMax\TileSet.cs">
-      <Link>TiledMax\TileSet.cs</Link>
-    </Compile>
-    <Compile Include="..\AlienMuseumWindows\AlienMuseumWindows\TiledMax\Xml.cs">
-      <Link>TiledMax\Xml.cs</Link>
-    </Compile>
     <Compile Include="..\AlienMuseumWindows\AlienMuseumWindows\States\GameState.cs">
       <Link>States\GameState.cs</Link>
     </Compile>
     <Compile Include="..\AlienMuseumWindows\AlienMuseumWindows\States\PlayState.cs">
       <Link>States\PlayState.cs</Link>
     </Compile>
+    <Compile Include="..\AlienMuseumWindows\AlienMuseumWindows\Graphics\TextureAtlas.cs">
+      <Link>Graphics\TextureAtlas.cs</Link>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="Icon.png" />
-    <None Include="..\AlienMuseumWindows\AlienMuseumWindows\TiledMax\TiledMax.csproj">
-      <Link>TiledMax\TiledMax.csproj</Link>
+    <None Include="..\AlienMuseumWindows\AlienMuseumWindows\Content\Artifacts.png">
+      <Link>Content\Artifacts.png</Link>
+    </None>
+    <None Include="..\AlienMuseumWindows\AlienMuseumWindows\Content\SideSpaceship.png">
+      <Link>Content\SideSpaceship.png</Link>
+    </None>
+    <None Include="..\AlienMuseumWindows\AlienMuseumWindows\Content\Start Screen.png">
+      <Link>Content\Start Screen.png</Link>
+    </None>
+    <None Include="..\AlienMuseumWindows\AlienMuseumWindows\Content\testlevel1.tmx">
+      <Link>Content\testlevel1.tmx</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\AlienMuseumWindows\AlienMuseumWindows\Content\titleSlug.png">
+      <Link>Content\titleSlug.png</Link>
+    </None>
+    <None Include="..\AlienMuseumWindows\AlienMuseumWindows\Content\TopSpaceship.png">
+      <Link>Content\TopSpaceship.png</Link>
+    </None>
+    <None Include="..\AlienMuseumWindows\AlienMuseumWindows\Content\WESlug.png">
+      <Link>Content\WESlug.png</Link>
     </None>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Content\" />
     <Folder Include="Graphics\" />
     <Folder Include="Entity\" />
-    <Folder Include="TiledMax\" />
     <Folder Include="States\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
@@ -147,5 +132,15 @@
       <Link>Content\NorthSlug.png</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="..\AlienMuseumWindows\AlienMuseumWindows\Content\levelone.png">
+      <Link>Content\levelone.png</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AlienMuseumWindows\AlienMuseumWindows\TiledSharp-master\TiledSharp\TiledSharp.csproj">
+      <Project>{E4130F8D-D301-4E0C-916D-489C4A23C9B1}</Project>
+      <Name>TiledSharp</Name>
+    </ProjectReference>
   </ItemGroup>
 </Project>
