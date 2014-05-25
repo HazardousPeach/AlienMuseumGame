@@ -8,6 +8,8 @@ namespace AlienMuseumGame{
 		 private Rectangle display;
 		 private Rectangle viewport;
 		 public void Draw(List<GraphicsObject> objects){
+		 	foreach(GraphicsObject obj in objects){
+			}
 		 }
 		 private Vector2D worldToScreen(Vector2D point){
 		 	 
